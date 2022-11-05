@@ -9,3 +9,26 @@ unemploymant rate '96
 no. of enterpreneurs per 1000 inhabitants
 no. of commited crimes '95
 no. of commited crimes '96
+
+See also the trans_dev.csv atributes
+disponent of account meaning: "A person, such as a bareboat or time charterer, who, while not being the 
+registered owner of a ship, nevertheless has the right to “dispose of it” (i.e. to control its 
+commercial operation), notably by sub-chartering it to a third party. Although lacking title to 
+the vessel, the disponent owner may have many of the rights and responsibilities of the owner"
+
+Things like: number of credit used by the person every month ( check the type of credit ), savings of money from one
+to another ( accumulated one year etc)
+
+- Transform data to numeric values: Eg: on transactions "type";"operation" to number classification
+- Meaning of: type";"operation";"amount";"balance" and the different values on them
+- count number of transactions per month, number of credit type transactions and others to analyze the data
+- count number of loans per account
+- counter number of every type of transactions
+- use balance to check bad using of credit/money ?!?
+- obter 0 or 1 if the number of payments are "normal" to the duration of the loan ( for a normal loan -> check information about this)
+ - obter classificação numérica para os tipos de cartões ? associar a isso a loans + transactions + id_district + unemployment on the yearof the loan
+ - Data do loan é a final, em que loan está totalmente pago ou não pago/default
+Maybe use SQL to do this ?!? and other type of more complex queries
+
+What Is a Withdrawal : A withdrawal involves removing funds from a bank account, savings plan, pension, or trust. 
+credit: A credit is an entry made to a bank account, savings plan, pension, or trust that increases the balance.
