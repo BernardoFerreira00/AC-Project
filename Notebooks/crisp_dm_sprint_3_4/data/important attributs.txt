@@ -1,0 +1,31 @@
+amount
+duration
+payments
+*type
+average
+salary
+unemploymant rate '95
+unemploymant rate '96
+no. of enterpreneurs per 1000 inhabitants
+no. of commited crimes '95
+no. of commited crimes '96
+
+More stuff: 
+We need parameters tuning and better feature selection, data preparation and or data understanding.
+Check on all models what is the positive and negative class and the confusion matrix not random ! Data sorted by date of loan ascending order. ( See this )
+Experimentar várias estratégias de sampling, como por exemplo, undersampling, oversampling, SMOTE, etc.
+Validatin after test, not before. ( See this ) ?!!?
+Featuring enginnering, feature selection !!!! ( See this )
+Descriptive modeling : clustering, PCA, etc. ( See this )
+No fundo: passar por todos os passos das teóricas de data mining, e ver o que se pode fazer para melhorar os resultados. ( See this )
+Tests with different models, and different parameters. ( See this )
+Tests need to be about loans in the future comparing with the data training !!!!
+New feature: loan amount / duration
+New feature: loan amount / payments
+New feature: loan amount / payments / duration
+New feature: number of clients with the same account with loan
+New feature: try to calculate "taxa de esforço" ou algo parecido
+New feature : get month balance, calculate the average and compare with the loan month payment -> sum the value of the loan payment
+Maybe delete the type of transaction !!!
+-> See the formulas used by banks !!!
+See account_frequency: meaning and maybe changing to numerical values
