@@ -2,9 +2,11 @@
 
 from imblearn import under_sampling, over_sampling
 from sklearn.model_selection import train_test_split, StratifiedKFold
+from sklearn.metrics import roc_auc_score
+from sklearn import metrics
 
-def split_data(X, y, test_size):
-    return train_test_split(X, y, test_size=0.3, random_state=42, shuffle=False)
+def split_data(X, y, test_size=0.3):
+    return train_test_split(X, y, test_size=test_size, random_state=42, shuffle=False)
 
 def smote_over_sampling(X_train, y_train,option="",rs=42):
     if(option=="SMOTE"):
@@ -71,6 +73,42 @@ def smote_under_sampling(X_train, y_train,option="",rs=42):
         cc = under_sampling.ClusterCentroids(random_state=rs)
         X_train, y_train = cc.fit_resample(X_train, y_train)      
         
+
+#TODO:
+# ver melhor como integrar isto em funções 
         
-        
- 
+# def calculate_statistics(y_test, pred,result_dict):
+#     acc_list = []
+#     auc_list = []
+#     cm_list = []
+#     accuracy = metrics.accuracy_score(y_test, pred)
+#     precision = metrics.precision_score(y_test, pred)
+#     recall = metrics.recall_score(y_test, pred)
+#     f1_score1 = metrics.f1_score(y_test, pred)
+#     acc_list.append(metrics.accuracy_score(y_test, pred))
+#     fpr, tpr, _thereshold = metrics.roc_curve(y_test, pred)
+#     auc_list.append(round(metrics.auc(fpr, tpr),3))
+#     cm_list.append(metrics.confusion_matrix(y_test, pred))
+#     result_dict = {"accuracy":accuracy,"precision":precision,"recall":recall,"f1_score":f1_score1,"auc":auc_list,"confusion_matrix":cm_list,"acc_list":acc_list}
+
+#     print(f"Accuracy: {accuracy}")
+#     print(f"Precision: {precision}")
+#     print(f"Recall: {recall}")
+#     print(f"F1-Score: {f1_score1}")
+    
+    
+    
+# def add_model_to_pipeline(model,name_model ,model_pipeline):
+#     model_pipeline[name_model] = model
+    
+
+# # save prediction on model_array of dataframes predictions and then save it to csv
+# def model_pipeline_evaluation(model_pipeline, X_train, y_train, X_test, y_test):
+#     result_dict = {}
+#     for name_model, model in model_pipeline.items():
+#         print(name_model)
+#         model.fit(X_train, y_train)
+#         pred = model.predict(X_test)
+#         calculate_statistics(y_test, pred,result_dict)
+#         print(
+    
