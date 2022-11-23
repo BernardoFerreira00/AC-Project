@@ -76,6 +76,7 @@ def smote_under_sampling(X_train, y_train,option="",rs=42):
 
 #TODO:
 # ver melhor como integrar isto em funções 
+#Adicionar cross-validation ideal para time series
         
 # def calculate_statistics(y_test, pred,result_dict):
 #     acc_list = []
