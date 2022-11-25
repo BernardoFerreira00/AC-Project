@@ -4,7 +4,9 @@ from imblearn import under_sampling, over_sampling
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.metrics import roc_auc_score
 from sklearn import metrics
-
+import numpy as np
+from sklearn.linear_model import ElasticNet
+from sklearn.multioutput import MultiOutputRegressor
 def split_data(X, y, test_size=0.3):
     return train_test_split(X, y, test_size=test_size, random_state=42, shuffle=False)
 
@@ -72,7 +74,49 @@ def smote_under_sampling(X_train, y_train,option="",rs=42):
     elif(option=="ClusterCentroids"):
         cc = under_sampling.ClusterCentroids(random_state=rs)
         X_train, y_train = cc.fit_resample(X_train, y_train)      
-        
+
+
+# Blocking time series cross validation
+
+class BlockingTimeSeriesSplit():
+    def __init__(self, n_splits):
+        self.n_splits = n_splits
+    
+    def get_n_splits(self, X, y, groups):
+        return self.n_splits
+    
+    def split(self, X, y=None, groups=None):
+        n_samples = len(X)
+        k_fold_size = n_samples // self.n_splits
+        indices = np.arange(n_samples)
+
+        margin = 0
+        for i in range(self.n_splits):
+            start = i * k_fold_size
+            stop = start + k_fold_size
+            mid = int(0.8 * (stop - start)) + start
+            yield indices[start: mid], indices[mid + margin: stop]
+
+
+def build_model(_alpha, _l1_ratio):
+    estimator = ElasticNet(
+        alpha=_alpha,
+        l1_ratio=_l1_ratio,
+        fit_intercept=True,
+        normalize=False,
+        precompute=False,
+        max_iter=16,
+        copy_X=True,
+        tol=0.1,
+        warm_start=False,
+        positive=False,
+        random_state=None,
+        selection='random'
+    )
+
+    return MultiOutputRegressor(estimator, n_jobs=4)
+
+
 
 #TODO:
 # ver melhor como integrar isto em funções 
