@@ -1,0 +1,2 @@
+0;1;2;3;4;5;6;7;8;9
+account.NUM_UNIQUE(transaction.trans_operation);loan_status;account.SKEW(transaction.trans_day);account.MEAN(transaction.trans_day);account.MODE(disp.type) = OWNER;account.COUNT(disp);account.MODE(disp.type) = DISPONENT;account.NUM_UNIQUE(disp.type);account.SUM(transaction.trans_amount);account.MAX(transaction.trans_day)
